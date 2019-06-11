@@ -41,7 +41,7 @@ var playerX = new Player("Adrian", "X", false, 0);
 var playerO = new Player("Adam", "O", false, 0);
 
 
-function check(symbol) {
+function check(symbol) { //Funkcja wykonuje 2 rzeczy! ZLE!
     if (tab[0][0].text() === `${symbol}` && tab[0][1].text() === `${symbol}` && tab[0][2].text() === `${symbol}`) {
         tab[0][0].css("background", "yellow");
         tab[0][1].css("background", "yellow");
@@ -98,7 +98,7 @@ function begin() {
             tab[i][k].css("background", "#e8e8e8");
         }
 }
-
+//******  KONIEC ** SEKCJI ** FUNCKJI  ************************************************
 
 $('td').on('click', function (e) {
     console.log($(this).index())
@@ -109,8 +109,8 @@ $('td').on('click', function (e) {
     if ($(this).text() === "X" || $(this).text() === "O") {
         $(this).css("background", "red");
     } else if (turn % 2 === 0) {
-        $(this).text(playerX.getSymbol());
-        if (check(playerX.symbol) === true) {
+        $(this).text(playerX.getSymbol()); //Ustawianie znaku w polu na X
+        if (check(playerX.symbol) === true) { //sprawdza czy dany gracz wygral
             playerX.setWinner(true);
             playerX.addPoint();
             console.log(`Winner X`);
@@ -118,7 +118,6 @@ $('td').on('click', function (e) {
 
         $('.turn').text(`Kolej gracza ${playerO.getSymbol()}`)
         turn++;
-        console.log("Kolej X");
     } else if (turn % 2 !== 0) {
         $(this).text(playerO.getSymbol());
         if (check(playerO.symbol) === true) {
@@ -136,10 +135,11 @@ $('td').on('click', function (e) {
     if (playerX.getWinner() === true || playerO.getWinner() === true) {
         playerX.setWinner(false);
         playerO.setWinner(false);
+        $('.turn').text("");
         setTimeout(function () {
-            $('td').text("");
+            $('td').text(" ");
             $('.turn').text("Zaczyna X");
-            turn=0;
+            turn = 0;
             begin();
         }, 1000);
 

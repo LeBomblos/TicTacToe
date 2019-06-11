@@ -102,7 +102,7 @@ function begin() {
 
 $('td').on('click', function (e) {
     console.log($(this).index())
-    $(this).css("background", "#b5b5b5");
+    $(this).css("background-image", "linear-gradient(to bottom right, white, #aaaaaa)");
 
 
 
@@ -137,7 +137,9 @@ $('td').on('click', function (e) {
         playerX.setWinner(false);
         playerO.setWinner(false);
         setTimeout(function () {
-            $('td').text("A");
+            $('td').text("");
+            $('.turn').text("Zaczyna X");
+            turn=0;
             begin();
         }, 1000);
 

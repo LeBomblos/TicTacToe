@@ -6,5 +6,11 @@ td{
     height: 150px;
     text-align: center;
     border: 2px solid black;
-    margin: 0;
+    font-size: 100px;
+}
+.turn{
+    font-size: 70px;
+}
+.points{
+    font-size: 70px;
 }

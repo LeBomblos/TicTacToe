@@ -26,7 +26,6 @@ class Player {
         return this.point;
     }
 
-
 }
 
 
@@ -137,7 +136,7 @@ $('td').on('click', function (e) {
         playerO.setWinner(false);
         $('.turn').text("");
         setTimeout(function () {
-            $('td').text(" ");
+            $('td').text("");
             $('.turn').text("Zaczyna X");
             turn = 0;
             begin();
